@@ -14,11 +14,6 @@
     "lerna-bootstrap": "lerna bootstrap --hoist",
     "lerna-publish": "lerna publish --conventional-commits"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js}": [
       "eslint --fix .",
@@ -36,13 +31,13 @@
   "contributors": [
     "Thomas Schoffelen <thomas@includable.com>"
   ],
-  "homepage": "https://github.com/kimxogus/react-native-version-check",
+  "homepage": "https://github.com/24i/react-native-version-check",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kimxogus/react-native-version-check.git"
+    "url": "https://github.com/24i/react-native-version-check.git"
   },
   "bugs": {
-    "url": "https://github.com/kimxogus/react-native-version-check/issues"
+    "url": "https://github.com/24i/react-native-version-check/issues"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
