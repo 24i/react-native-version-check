@@ -12,6 +12,10 @@
     "test:watch": "babel-node scripts/test --watch",
     "prepublishOnly": "npm run test",
     "lerna-bootstrap": "lerna bootstrap --hoist",
+    "publish-release-packages": "npx lerna publish from-package --yes",
+    "publish-prerelease-packages": "npx lerna publish from-package --dist-tag alpha --yes",
+    "pre-publish-prerelease": "npx lerna version prerelease --conventional-commits --conventional-prerelease --force-publish --yes",
+    "pre-publish-release": "npx lerna version --conventional-commits --conventional-graduate --force-publish --yes",
     "lerna-publish": "lerna publish --conventional-commits"
   },
   "lint-staged": {
