@@ -18,16 +18,6 @@
     "pre-publish-release": "npx lerna version --conventional-commits --conventional-graduate --force-publish --yes",
     "lerna-publish": "lerna publish --conventional-commits"
   },
-  "lint-staged": {
-    "*.{js}": [
-      "eslint --fix .",
-      "git add"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "engines": {
     "node": ">= 8"
   },
