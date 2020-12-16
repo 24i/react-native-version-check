@@ -41,9 +41,9 @@ export type NeedUpdateResult = {
   storeUrl: string,
   currentVersion: string,
   latestVersion: string,
-  minimalVersion: string;
-  forcedVersion: string;
-  blackList: string[];
+  minimalVersion: string,
+  forcedVersion: string,
+  blackList: string[],
 };
 
 export default async function needUpdate(
@@ -76,7 +76,7 @@ export default async function needUpdate(
           storeUrl,
           minimalVersion,
           forcedVersion,
-          blackList
+          blackList,
         }: IVersionAndStoreUrl = await option.provider.getVersion(option);
         vlatestVersion = version;
         vproviderStoreUrl = storeUrl;
@@ -86,14 +86,15 @@ export default async function needUpdate(
       }
 
       if (providers[option.provider]) {
-        const { 
+        const {
           version,
           storeUrl,
           minimalVersion,
           forcedVersion,
-          blackList }: IVersionAndStoreUrl = await providers[
-          option.provider
-        ].getVersion(option);
+          blackList,
+        }: IVersionAndStoreUrl = await providers[option.provider].getVersion(
+          option
+        );
         vlatestVersion = version;
         vproviderStoreUrl = storeUrl;
         vminimalVersion = minimalVersion;
@@ -122,29 +123,34 @@ export default async function needUpdate(
   }
 }
 
-function canSkip(forcedVersion,currentVersionWithDepth,blackList,option) {
-  console.log(option.provider);
-  console.log(forcedVersion);
-  console.log(currentVersionWithDepth);
+function canSkip(forcedVersion, currentVersionWithDepth, blackList, option) {
+  // console.log(option.provider);
+  // console.log(forcedVersion);
+  // console.log(currentVersionWithDepth);
   if (isNil(option.provider) || option.provider !== 'jsonFile') {
     return false;
   }
-  if(!isNil(blackList) && blackList.includes(currentVersionWithDepth)){
+  if (!isNil(blackList) && blackList.includes(currentVersionWithDepth)) {
     return false;
   }
-  return semver.gt(currentVersionWithDepth,forcedVersion);
+  return semver.getVersionInfo(currentVersionWithDepth, forcedVersion);
 }
 
-function isNeeded(latestVersionWithDepth,currentVersionWithDepth,minimalVersion,blackList,option){
+function isNeeded(
+  latestVersionWithDepth,
+  currentVersionWithDepth,
+  minimalVersion,
+  blackList,
+  option
+) {
   if (isNil(option.provider) || option.provider !== 'jsonFile') {
-    return semver.gt(latestVersionWithDepth, currentVersionWithDepth);
+    return semver.gte(latestVersionWithDepth, currentVersionWithDepth);
   }
 
-  if(!isNil(blackList) && blackList.includes(currentVersionWithDepth)){
+  if (!isNil(blackList) && blackList.includes(currentVersionWithDepth)) {
     return true;
   }
-  return semver.gt(minimalVersion,currentVersionWithDepth);
-  
+  return semver.gte(minimalVersion, currentVersionWithDepth);
 }
 
 function checkIfUpdateNeeded(
@@ -166,14 +172,20 @@ function checkIfUpdateNeeded(
   );
 
   const response = {
-    isNeeded: isNeeded(latestVersionWithDepth,currentVersionWithDepth,minimalVersion,blackList,option),
-    canSkip: canSkip(forcedVersion,currentVersionWithDepth,blackList,option),
+    isNeeded: isNeeded(
+      latestVersionWithDepth,
+      currentVersionWithDepth,
+      minimalVersion,
+      blackList,
+      option
+    ),
+    canSkip: canSkip(forcedVersion, currentVersionWithDepth, blackList, option),
     storeUrl: providerStoreUrl,
     currentVersion,
     latestVersion,
     minimalVersion,
     forcedVersion,
-    blackList
+    blackList,
   };
 
   return Promise.resolve(response);
