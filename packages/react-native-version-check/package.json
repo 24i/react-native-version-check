@@ -1,6 +1,6 @@
 {
   "name": "@24i/react-native-version-check",
-  "version": "3.4.3-alpha.2",
+  "version": "3.4.3-alpha.3",
   "description": "A version checker for react-native applications",
   "main": "index.js",
   "keywords": [
@@ -37,8 +37,8 @@
     "react-native": "^0.59.9"
   },
   "peerDependencies": {
-    "react-native": ">=0.48.0",
-    "lodash": "^4.4.0"
+    "lodash": "^4.4.0",
+    "react-native": ">=0.48.0"
   },
   "gitHead": "5d11252cae7712bfe11c92a0af3b8e746907e61d"
 }
