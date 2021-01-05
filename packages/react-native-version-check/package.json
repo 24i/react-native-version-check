@@ -37,7 +37,8 @@
     "react-native": "^0.59.9"
   },
   "peerDependencies": {
-    "react-native": ">=0.48.0"
+    "react-native": ">=0.48.0",
+    "lodash": "^4.4.0"
   },
-  "gitHead": "5dbc3c3bf801650c0852ad3e5c8619b50b1662a3"
+  "gitHead": "5d11252cae7712bfe11c92a0af3b8e746907e61d"
 }

@@ -32,5 +32,5 @@
     "expo": "^33.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz"
   },
-  "gitHead": "5dbc3c3bf801650c0852ad3e5c8619b50b1662a3"
+  "gitHead": "5d11252cae7712bfe11c92a0af3b8e746907e61d"
 }
