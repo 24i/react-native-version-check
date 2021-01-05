@@ -10,6 +10,7 @@ export type GetAppStoreUrlOption = {
 };
 
 export type GetPlayStoreUrlOption = {
+  isFireTV?: boolean,
   packageName?: string,
   ignoreErrors?: boolean,
 };
@@ -60,8 +61,29 @@ export const getPlayStoreUrl = async (
   }
 };
 
+export const getAmazonStoreUrl = async (
+  option: ?GetPlayStoreUrlOption = {}
+): Promise<string> => {
+  const opt = option || {};
+  try {
+    if (!opt.packageName) {
+      opt.packageName = await getVersionInfo().getPackageName();
+    }
+    return `http://www.amazon.com/gp/mas/dl/android?p=${opt.packageName}`;
+  } catch (e) {
+    if (opt.ignoreErrors) {
+      console.warn(e); // eslint-disable-line no-console
+    } else {
+      throw e;
+    }
+  }
+};
+
 export default async (option: GetStoreUrlOption): Promise<string> =>
   Platform.select({
-    android: getPlayStoreUrl,
+    android:
+      !isNil(option.isFireTV) && option.isFireTV
+        ? getAmazonStoreUrl
+        : getPlayStoreUrl,
     ios: getAppStoreUrl,
   })(option);
