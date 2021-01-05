@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 // @flow
 import { Platform } from 'react-native';
 import isNil from 'lodash.isnil';

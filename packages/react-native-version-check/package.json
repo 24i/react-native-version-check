@@ -38,5 +38,6 @@
   },
   "peerDependencies": {
     "react-native": ">=0.48.0"
-  }
+  },
+  "gitHead": "d5bf3b99bf18443ba823a584577544795d57d42a"
 }
