@@ -134,7 +134,7 @@ function canSkip(forcedVersion, currentVersionWithDepth, blackList, option) {
   if (!isNil(blackList) && blackList.includes(currentVersionWithDepth)) {
     return false;
   }
-  return semver.getVersionInfo(currentVersionWithDepth, forcedVersion);
+  return semver.gte(currentVersionWithDepth, forcedVersion);
 }
 
 function isNeeded(
