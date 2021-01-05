@@ -18,9 +18,11 @@
     "pre-publish-release": "npx lerna version --conventional-commits --conventional-graduate --force-publish --yes",
     "lerna-publish": "lerna publish --conventional-commits"
   },
+  "private":"true",
   "engines": {
     "node": ">= 8"
   },
+  "workspaces": ["packages/*"],
   "author": "Taehyun Kim <kgyoo8232@gmail.com> (https://github.com/kimxogus)",
   "contributors": [
     "Thomas Schoffelen <thomas@includable.com>"
@@ -45,6 +47,7 @@
     "eslint": "^6.6.0",
     "eslint-config-aroundus": "^2.0.1",
     "eslint-config-react-native": "^4.0.0",
+    "eslint-plugin-lodash": "^7.1.0",
     "eslint-plugin-react-native": "^3.8.1",
     "flow-bin": "^0.112.0",
     "flow-typed": "^2.6.2",
@@ -52,7 +55,6 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.9.0",
     "jest-junit": "^9.0.0",
-    "lodash": "^4.17.20",
     "lerna": "^3.18.4",
     "lint-staged": "^9.4.2",
     "metro-react-native-babel-preset": "^0.57.0",

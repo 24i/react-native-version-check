@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 // @flow
 import semver from 'semver';
-import isNil from 'lodash/isnil';
+import isNil from 'lodash.isnil';
 
 import { getVersionInfo } from './versionInfo';
 import * as providers from './providers';
