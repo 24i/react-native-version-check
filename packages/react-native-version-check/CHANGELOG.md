@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.3-alpha.4](https://github.com/24i/react-native-version-check/compare/@24i/react-native-version-check@3.4.3-alpha.3...@24i/react-native-version-check@3.4.3-alpha.4) (2021-01-05)
+
+**Note:** Version bump only for package @24i/react-native-version-check
+
+
+
+
+
 ## 3.4.3-alpha.3 (2021-01-05)
 
 
