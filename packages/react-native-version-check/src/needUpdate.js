@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 // @flow
 import semver from 'semver';
-import isNil from 'lodash.isnil';
+import isNil from 'lodash/isnil';
 
 import { getVersionInfo } from './versionInfo';
 import * as providers from './providers';
@@ -145,7 +145,7 @@ function isNeeded(
   option
 ) {
   if (isNil(option.provider) || option.provider !== 'jsonFile') {
-    return semver.gte(latestVersionWithDepth, currentVersionWithDepth);
+    return semver.gt(latestVersionWithDepth, currentVersionWithDepth);
   }
 
   if (!isNil(blackList) && blackList.includes(currentVersionWithDepth)) {
