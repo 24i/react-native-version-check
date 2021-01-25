@@ -21,8 +21,8 @@
         "url": "amazon url"
     },
 	"ios":{
-		"latest": "1.3.23",
-		"minimal": "1.3.21",
+		"latest": "1.3.25",
+		"minimal": "1.3.23",
 		"forced" : "1.3.20",
         "blacklist": ["1.1.9"],
         "url": "appstore url"
